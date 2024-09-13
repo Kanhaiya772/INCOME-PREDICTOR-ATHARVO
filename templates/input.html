@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Prediction</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-mn/nKKGUV6RJoVIGuZl5K3m0Nge/jbxt6W9u42M/d50FQJ5+14zWli3+B3r4kJkB" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+           
+        }
+
+        .container {
+            width:100%%;
+            margin-top: 50px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #343a40;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #495057;
+        }
+
+        .form-control {
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .prediction-result {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 18px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            color: #212529;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Income Prediction</h1>
+
+        <!-- Form to take user input -->
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" class="form-control" id="age" name="age" required>
+            </div>
+
+            <div class="form-group">
+                <label for="sex">Sex:</label>
+                <select class="form-control" id="sex" name="sex" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="marital.status">Marital Status:</label>
+                <select class="form-control" id="marital.status" name="marital.status" required>
+                    <option value="Never-married">Never married</option>
+                    <option value="Married-civ-spouse">Married</option>
+                    <option value="Divorced">Divorced</option>
+                    <option value="Widowed">Widowed</option>
+                    <option value="Separated">Separated</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="education.num">Education Number (years of education):</label>
+                <input type="number" class="form-control" id="education.num" name="education.num" required>
+            </div>
+
+            <div class="form-group">
+                <label for="fnlwgt">Final Weight:</label>
+                <input type="number" class="form-control" id="fnlwgt" name="fnlwgt" required>
+            </div>
+
+            <div class="form-group">
+                <label for="capital.gain">Capital Gain:</label>
+                <input type="number" class="form-control" id="capital.gain" name="capital.gain" required>
+            </div>
+
+            <div class="form-group">
+                <label for="capital.loss">Capital Loss:</label>
+                <input type="number" class="form-control" id="capital.loss" name="capital.loss" required>
+            </div>
+
+            <div class="form-group">
+                <label for="hours.per.week">Hours Per Week:</label>
+                <input type="number" class="form-control" id="hours.per.week" name="hours.per.week" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Predict Income</button>
+        </form>
+
+        {% if prediction_text_rfc %}
+        <div class="prediction-result">
+            <h3>Prediction: {{ prediction_text_rfc }}</h3>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Bootstrap JS (optional but good for interactivity) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-67oT1ssmHMe8t4hPnc8hqITpGM/uZ/klkSjoEv3x3YNd7wwjeCeJWG/i9lkfpL8j" crossorigin="anonymous"></script>
+
+</body>
+</html>
