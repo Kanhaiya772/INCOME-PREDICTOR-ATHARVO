@@ -86,9 +86,6 @@ If you upload a CSV file, make sure it contains the following columns in the spe
 | age | fnlwgt | education.num | marital.status | sex | capital.gain | capital.loss | hours.per.week |
 | --- | ------ | ------------- | ---------------| --- | ------------ | ------------ | -------------- |
 | 45  | 172274 | 16            | Married        | Male| 3004         | 0            | 40             |
-
-**Note:** Categorical features like `sex` and `marital.status` will be encoded internally.
-
 ## Example Input (Web Form)
 
 - **Age:** 34
@@ -112,6 +109,3 @@ After entering data or uploading a CSV, the model will return whether the predic
 For any questions or suggestions, please contact:
 - **Kanhaiya Chaudhary** - [kanhiyachaudhary772@gmail.com](mailto:kanhiyachaudhary772@gmail.com)
 - **GitHub**: [github.com/Kanhaiya772](https://github.com/Kanhaiya772)
-
-
-Feel free to adjust any details, such as the repository URL or contact information, according to your needs.
